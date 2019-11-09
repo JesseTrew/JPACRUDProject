@@ -12,7 +12,7 @@
 <class>com.skilldistillery.jurassicpark.entities.Dinosaur</class>
 
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sdvid?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=MST" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jurassicparkdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=MST" />
       <property name="javax.persistence.jdbc.user" value="jesse"/>
       <property name="javax.persistence.jdbc.password" value="jesse" />
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />

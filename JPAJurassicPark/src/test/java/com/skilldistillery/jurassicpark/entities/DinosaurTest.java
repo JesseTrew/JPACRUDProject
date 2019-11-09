@@ -1,12 +1,19 @@
 package com.skilldistillery.jurassicpark.entities;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class DinosaurTest {
 
@@ -14,24 +21,24 @@ public class DinosaurTest {
 	private EntityManager em;
 	private Dinosaur dinosaur;
 	
-	@BeforeClass
+	@BeforeAll
 	public static void setUpBeforeClass() throws Exception {
-	emf = Persisitence.createEntityMangerFactory("JurassicParkPU")
+	emf = Persistence.createEntityManagerFactory("JurassicParkPU");
 	}
 	
 
-	@AfterClass
+	@AfterAll
 	public static void tearDownAfterClass() throws Exception {
 	emf.close();
 	}
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
-	em = emf.createEntityMangqer();
+	em = emf.createEntityManager();
 	dinosaur = em.find(Dinosaur.class, 1);
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 	em.close();
 	dinosaur = null;
@@ -40,10 +47,13 @@ public class DinosaurTest {
 	@Test
 	@DisplayName("Test basic JPA functionality")
 	void test_Dinosaur_entity_mappings() {
-		assertNotNull(dinosaur);
-		assertEquals("Denver", dinosaur.getName());
-		
-		
+//		assertNotNull(dinosaur);
+		assertEquals("Steggy", dinosaur.getName());
+		assertEquals(20, dinosaur.getHeight());
+		assertEquals(false, dinosaur.isFlying());
+		assertEquals(300, dinosaur.getWeight());
+		assertEquals("omnivore", dinosaur.getDiet());
+		assertNull(dinosaur.getSpecialChars());
 	}
 
 	
