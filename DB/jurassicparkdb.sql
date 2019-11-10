@@ -5,15 +5,15 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema jurassicparkdb
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `mydb` ;
+DROP SCHEMA IF EXISTS `jurassicparkdb` ;
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema jurassicparkdb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `jurassicparkdb` DEFAULT CHARACTER SET utf8 ;
+USE `jurassicparkdb` ;
 
 -- -----------------------------------------------------
 -- Table `dinosaur`
@@ -28,16 +28,16 @@ CREATE TABLE IF NOT EXISTS `dinosaur` (
   `weight` VARCHAR(45) NULL,
   `diet` VARCHAR(45) NULL,
   `special_characteristics` VARCHAR(45) NULL,
+  `species` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 SET SQL_MODE = '';
 DROP USER IF EXISTS jesse@localhost;
-
 SET SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 CREATE USER 'jesse'@'localhost' IDENTIFIED BY 'jesse';
-GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'jesse'@'localhost';
 
+GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'jesse'@'localhost';
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -47,8 +47,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Data for table `dinosaur`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `dinosaur` (`id`, `name`, `height`, `flying`, `weight`, `diet`, `special_characteristics`) VALUES (1, 'Steggy', 20, 0, '300', 'omnivore', NULL);
+USE `jurassicparkdb`;
+INSERT INTO `dinosaur` (`id`, `name`, `height`, `flying`, `weight`, `diet`, `special_characteristics`, `species`) VALUES (1, 'Steggy', 20, 0, '300', 'omnivore', NULL, NULL);
 
 COMMIT;
 
