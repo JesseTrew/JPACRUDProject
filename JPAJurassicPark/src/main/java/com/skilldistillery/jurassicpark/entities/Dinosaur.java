@@ -21,6 +21,7 @@ public class Dinosaur {
 	private String diet;
 	@Column(name = "special_characteristics")
 	private String specialChars;
+	private String species;
 
 	// C o n s t r u c t o r s
 
@@ -28,7 +29,7 @@ public class Dinosaur {
 		super();
 	}
 
-	public Dinosaur(String name, int height, int weight, boolean flying, String diet, String specialChars) {
+	public Dinosaur(String name, int height, int weight, boolean flying, String diet, String specialChars, String species) {
 		super();
 		this.name = name;
 		this.height = height;
@@ -36,6 +37,19 @@ public class Dinosaur {
 		this.flying = flying;
 		this.diet = diet;
 		this.specialChars = specialChars;
+		this.species = species;
+	}
+	
+	public Dinosaur(int id, String name, int height, int weight, boolean flying, String diet, String specialChars, String species) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.height = height;
+		this.weight = weight;
+		this.flying = flying;
+		this.diet = diet;
+		this.specialChars = specialChars;
+		this.species = species;
 	}
 
 	// M e t h o d s
@@ -92,6 +106,14 @@ public class Dinosaur {
 		this.specialChars = specialChars;
 	}
 
+	public String getSpecies() {
+		return species;
+	}
+
+	public void setSpecies(String species) {
+		this.species = species;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -102,6 +124,7 @@ public class Dinosaur {
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((specialChars == null) ? 0 : specialChars.hashCode());
+		result = prime * result + ((species == null) ? 0 : species.hashCode());
 		result = prime * result + weight;
 		return result;
 	}
@@ -136,6 +159,11 @@ public class Dinosaur {
 				return false;
 		} else if (!specialChars.equals(other.specialChars))
 			return false;
+		if (species == null) {
+			if (other.species != null)
+				return false;
+		} else if (!species.equals(other.species))
+			return false;
 		if (weight != other.weight)
 			return false;
 		return true;
@@ -144,6 +172,6 @@ public class Dinosaur {
 	@Override
 	public String toString() {
 		return "Dino ID: " + id + " -- Name: " + name + " -- Height: " + height + " -- Weight: " + weight + " -- Flying: "
-				+ flying + " -- Diet: " + diet + " -- Special Characteristics: " + specialChars;
+				+ flying + " -- Diet: " + diet + " -- Special Characteristics: " + specialChars + " -- Species: " + species;
 	}
 }

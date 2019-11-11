@@ -20,30 +20,29 @@ public class DinosaurTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Dinosaur dinosaur;
-	
+
 	@BeforeAll
 	public static void setUpBeforeClass() throws Exception {
-	emf = Persistence.createEntityManagerFactory("JurassicParkPU");
+		emf = Persistence.createEntityManagerFactory("JurassicParkPU");
 	}
-	
 
 	@AfterAll
 	public static void tearDownAfterClass() throws Exception {
-	emf.close();
+		emf.close();
 	}
 
 	@BeforeEach
 	public void setUp() throws Exception {
-	em = emf.createEntityManager();
-	dinosaur = em.find(Dinosaur.class, 1);
+		em = emf.createEntityManager();
+		dinosaur = em.find(Dinosaur.class, 1);
 	}
 
 	@AfterEach
 	public void tearDown() throws Exception {
-	em.close();
-	dinosaur = null;
+		em.close();
+		dinosaur = null;
 	}
-	
+
 	@Test
 	@DisplayName("Test basic JPA functionality")
 	void test_Dinosaur_entity_mappings() {
@@ -55,7 +54,5 @@ public class DinosaurTest {
 		assertEquals("omnivore", dinosaur.getDiet());
 		assertNull(dinosaur.getSpecialChars());
 	}
-
-	
 
 }
