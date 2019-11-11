@@ -6,7 +6,7 @@
 This weeks homework objective is to perform simple CRUD on a single table database of your choosing and creation.
 
 ### How to Run
-Run as a Spring Boot project from from the file Casino.java. Follow on-screen prompts and input requested data.
+Run as a Spring Boot project from the JurassicParkApplication Java file.
 
 ### Technologies/Topics Used
 This project required creating a database with a single table in MySQLWorkbench and mapping it to a JPA entity in STS. We are deploying the project to an AWS instance.
