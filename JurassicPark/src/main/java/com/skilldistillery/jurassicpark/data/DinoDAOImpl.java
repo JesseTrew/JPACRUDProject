@@ -39,7 +39,7 @@ public class DinoDAOImpl implements DinoDao {
 	public String removeDino(int dinoId) {
 		Dinosaur dino = em.find(Dinosaur.class, dinoId);
 
-		em.remove(dino); // performs the delete on the managed entity
+		em.remove(dino);
 		return dino.toString();
 	}
 

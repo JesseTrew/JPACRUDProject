@@ -13,3 +13,5 @@ This project required creating a database with a single table in MySQLWorkbench 
 
 ### Lessons Learned
 This project was a great overview of all of the new technologies we've been introduced to lately. One of my main takeaways is that I would like to get more familiar with /Bootstrap and CSS. As of the due date, my site looks very plain Jane. I'll try to come back to it over this week and polish it up.
+
+Otherwise, I really like how simple JPA and Spring Boot make the CRUD process. Compared to last week's project
